@@ -97,6 +97,7 @@ function game() {
     } else {
         console.log("Tough luck! The computer won the game!");
     }
+    return;
 }
 
 game();
