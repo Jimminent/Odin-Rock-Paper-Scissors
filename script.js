@@ -1,4 +1,4 @@
-console.log("Hello Jimmy");
+console.log("Let's play Rock Paper Scissors! Best 3 out of 5.");
 function computerPlay() {
     let randInt = Math.floor(Math.random() * 3) + 1;
     let aiChoice;
@@ -49,13 +49,33 @@ let computerChoice;
 
 
 function game() {
+    let aiScore = 0;
+    let playerScore = 0;
+
     for (let i = 0; i < 5; i++) {
         playerChoice = prompt("choose your weapon");
         computerChoice = computerPlay();
 
-        console.log(`round ${i + 1} of 5.`);
+        console.log(`round ${i + 1}.`);
 
-        console.log(playRound(playerChoice, computerChoice));
+        let result = playRound(playerChoice, computerChoice);
+        console.log(result);
+
+        if (result.includes("win")) {
+            playerScore++;
+        } else {
+            aiScore++;
+        }
+        console.log(`Player: ${playerScore}, Computer: ${aiScore}`);
+        if (playerScore == 3 || aiScore == 3) {
+            break
+        }
+    }
+
+    if (playerScore > aiScore) {
+        console.log("Congratulations! You won the game!");
+    } else {
+        console.log("Tough luck! The computer won the game!");
     }
 }
 
