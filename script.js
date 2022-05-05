@@ -16,7 +16,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     let playerInput = playerSelection.toLowerCase();
     if (playerInput == computerSelection) {
-        return `We tied! We both chose ${playerInput}.`;
+        return playRound(prompt(`We tied! We both chose ${playerInput}. Try again.`), computerChoice);
     }
     else if (playerInput == "rock") {
         if (computerSelection == "paper") {
@@ -40,11 +40,19 @@ function playRound(playerSelection, computerSelection) {
         }
 
     } else {
-        console.log("Misspelled. Try again");
-        return (playRound(prompt("Misspelled. Try again. choose your weapon"), computerChoice));
+        return (playRound(prompt("Misspelled. Try again."), computerChoice));
     }
 }
 
-    const playerChoice = prompt("choose your weapon");
-    const computerChoice = computerPlay();
-    console.log(playRound(playerChoice, computerChoice));
+const playerChoice = prompt("Choose your weapon");
+const computerChoice = computerPlay();
+
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log
+        console.log(playRound(playerChoice, computerChoice));
+    }
+}
+
+game();
