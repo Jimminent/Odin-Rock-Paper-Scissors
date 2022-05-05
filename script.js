@@ -25,29 +25,29 @@ function playRound(playerSelection, computerSelection) {
 
     // redo the round if there is a tie
     if (playerInput == computerSelection) {
-        return playRound(prompt(`We tied! We both chose ${playerInput}. Try again.`), computerPlay());
+        return playRound(prompt(`We both chose ${playerInput}! Try again.`), computerPlay());
     }
 
     // create logic for the outcome of the round by evaluating whether the player wins or loses
     else if (playerInput == "rock") {
         if (computerSelection == "paper") {
-            return "You lose! Paper covers Rock!";
+            return "Aww shoot! Paper covers Rock!";
         } else {
-            return "You win! Rock beats Scissors!";
+            return "Nice job! Rock beats Scissors!";
         }
 
     } else if (playerInput == "paper") {
         if (computerSelection == "rock") {
-            return "You win! Paper covers Rock!";
+            return "Nice job! Paper covers Rock!";
         } else {
-            return "You lose! Scissors cuts Paper!";
+            return "Aww shoot! Scissors cuts Paper!";
         }
 
     } else if (playerInput == "scissors") {
         if (computerSelection == "paper") {
-            return "You win! Scissors cuts Paper!";
+            return "Nice job! Scissors cuts Paper!";
         } else {
-            return "You lose! Rock beats Scissors!";
+            return "Aww shoot! Rock beats Scissors!";
         }
 
         // redo the round if the player misspelled their input
@@ -78,7 +78,7 @@ function game() {
         console.log(result);
 
         // check to see who won the round and assign a point to the winner
-        if (result.includes("win")) {
+        if (result.includes("job")) {
             playerScore++;
         } else {
             aiScore++;
