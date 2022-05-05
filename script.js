@@ -16,7 +16,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     let playerInput = playerSelection.toLowerCase();
     if (playerInput == computerSelection) {
-        return playRound(prompt(`We tied! We both chose ${playerInput}. Try again.`), computerChoice);
+        return playRound(prompt(`We tied! We both chose ${playerInput}. Try again.`), computerPlay());
     }
     else if (playerInput == "rock") {
         if (computerSelection == "paper") {
@@ -29,28 +29,32 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "rock") {
             return "You win! Paper covers Rock!";
         } else {
-            return "You lose! Scissors cut Paper!";
+            return "You lose! Scissors cuts Paper!";
         }
 
     } else if (playerInput == "scissors") {
         if (computerSelection == "paper") {
-            return "You win! Scissors cut Paper!";
+            return "You win! Scissors cuts Paper!";
         } else {
             return "You lose! Rock beats Scissors!";
         }
 
     } else {
-        return (playRound(prompt("Misspelled. Try again."), computerChoice));
+        return (playRound(prompt("Misspelled. Try again."), computerPlay()));
     }
 }
 
-const playerChoice = prompt("Choose your weapon");
-const computerChoice = computerPlay();
+let playerChoice;
+let computerChoice;
 
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        console.log
+        playerChoice = prompt("choose your weapon");
+        computerChoice = computerPlay();
+
+        console.log(`round ${i + 1} of 5.`);
+
         console.log(playRound(playerChoice, computerChoice));
     }
 }
